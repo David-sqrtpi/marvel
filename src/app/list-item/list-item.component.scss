@@ -1,0 +1,140 @@
+@use '@angular/material' as mat;
+
+button {
+    @include mat.button-overrides((
+      filled-container-color: #ee1d20,
+      filled-label-text-color: white,
+      filled-container-shape: small
+    ));
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 45% 20px 45% 1fr;
+    /* background-color: white;
+    outline: 20px solid #f4f4f4;
+    outline-offset: -20px; */
+    grid-template-rows: auto 80px 80px 100px;
+    background:
+        linear-gradient(to top, #f4f4f4 4%, transparent 4%) top,
+        linear-gradient(to right, #f4f4f4 4%, transparent 4%) right,
+        linear-gradient(to bottom, #f4f4f4 4%, transparent 4%) bottom,
+        linear-gradient(to left, #f4f4f4 4%, transparent 4%) left;
+    background-color: white;
+}
+
+.grid-container:hover {
+    .cell-2 .character-name {
+        color: #e51e26;
+    }
+
+    .cell-1 {
+        box-shadow: 5px 5px 50px gray;
+    }
+}
+
+.cell {
+    text-align: center;
+}
+
+.cell-1 {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+    border-radius: 100%;
+    width: auto;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 25px gray;
+}
+
+.cell-2 {
+    grid-column: 3;
+    grid-row: 1;
+    width: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+    color: #888888;
+    text-align: start;
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    text-overflow: ellipsis; */
+
+    .character-name {
+        color: black;
+        font-weight: 1000;
+        font-size: x-large;
+        margin: 0;
+        text-align: center;
+    }
+}
+
+.cell-3 {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    color: #737373;
+    font-size: large;
+}
+
+.cell-4 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    padding-left: 45px;
+    padding-right: 30px;
+}
+
+.cell-5 {
+    grid-column: 2 / 4;
+    grid-row: 3;
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+.cell-6 {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    padding-left: 45px;
+    padding-right: 30px;
+}
+
+.cell-7 {
+    grid-column: 2 / 4;
+    grid-row: 4;
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+.comic {
+    color: #777777;
+    text-align: start;
+}
+
+.comic:hover {
+    color: #e51e26;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.comic:hover::before {
+    content: "⤏";
+    color: #e51e26;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.character-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}

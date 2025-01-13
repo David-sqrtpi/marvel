@@ -1,0 +1,85 @@
+@use '@angular/material' as mat;
+
+.dialog {
+    padding: 0;
+    overflow: hidden;
+    max-width: 1500px;
+}
+
+.main-container {
+    margin: 50px 25px 20px 30px;
+    display: flex;
+    align-items: flex-start;
+
+    button {
+        background-image: url(/assets/btn-close.png);
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+        background-position: 50% 50%;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.actions-container {
+    display: flex;
+}
+
+img {
+    margin-right: 30px;
+    width: 270px;
+}
+
+.actions-item {
+    flex-grow: 2;
+    height: 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.comic-title {
+    margin-top: 0;
+    margin-right: 20px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.comic-description {
+    margin-right: 20px;
+}
+
+.action-add-favorites {
+    @include mat.button-overrides((filled-container-color: #f0f0f0,
+            filled-label-text-color: #3d3332,
+            filled-container-shape: small));
+}
+
+.action-add-favorites::before {
+    content: url(/assets/btn-favourites-default.png);
+    padding-right: 15px;
+}
+
+.added-to-favorites {
+    @include mat.button-overrides((filled-container-color: #322827,
+    filled-label-text-color: #ec1d23,
+    filled-container-shape: small));
+}
+
+.added-to-favorites::before {
+    content: url(/assets/btn-favourites-primary.png);
+    padding-right: 15px;
+}
+
+.action-add-cart {
+    @include mat.button-overrides((filled-container-color: #dcdcdc,
+            filled-label-text-color: #ec1d23,
+            filled-container-shape: small));
+}
+
+.action-add-cart::before {
+    content: url(/assets/shopping-cart-primary.png);
+    padding-right: 15px;
+}

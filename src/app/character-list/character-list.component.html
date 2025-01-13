@@ -1,0 +1,52 @@
+<!-- <div class="toolbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/2560px-Marvel_Logo.svg.png"
+        alt="marvel-logo">
+    </div> -->
+<mat-drawer-container>
+    <mat-drawer-content>
+        <div class="grid">
+            <div class="main-content">
+                <div class="characters-logo">
+                    <img src="/assets/characters.png">
+                    Characters
+                    <mat-form-field class="search-bar">
+                        <mat-label>Search character...</mat-label>
+                        <input matInput [formControl]="searchBarFormControl">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field class="sort-by">
+                        <mat-label>Sort by</mat-label>
+                        <mat-select [(value)]="sortBy" (selectionChange)="onSortByChange()">
+                            <mat-option value="">None</mat-option>
+                            <mat-option value="name">Name</mat-option>
+                            <mat-option value="modified">Creation Date</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                @if(!characters){
+                <div class="window">
+                    <mat-spinner color="warn"></mat-spinner>
+                </div>
+                }
+                @if(totalPages === 0){
+                    <div class="window">
+                        No characters found!
+                    </div>
+                    }
+                @else {
+                <div class="grid-container">
+                    @for (item of characters; track $index) {
+                    <div class="cell"><app-list-item [character]=item></app-list-item></div>
+                    }
+                </div>
+
+                <mat-paginator pageSize="10" [length]="totalPages" (page)="handlePageEvent($event)"></mat-paginator>
+                }
+            </div>
+        </div>
+    </mat-drawer-content>
+    <mat-drawer opened mode="side" position="end" class="favorites-list-sidenav">
+        <app-favorites-list></app-favorites-list>
+    </mat-drawer>
+</mat-drawer-container>

@@ -1,0 +1,68 @@
+<mat-dialog-content class="dialog" id="dialog">
+    <h2 mat-dialog-title>Square Checkout</h2>
+    @if(!paymentInProgress()){
+    <mat-accordion>
+        <mat-expansion-panel expanded="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Card Payment</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="card-form">
+                <div id="payment-status-container"></div>
+                <div id="card-container"></div>
+                <div [className]="cardFormLoading? 'loading': 'hidden'">
+                    <mat-spinner color="warn"></mat-spinner>
+                </div>
+                <button mat-stroked-button (click)="payCard()" [hidden]="cardFormLoading">Pay</button>
+            </div>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> ACH Bank Transfer </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="ach-form">
+                <div id="payment-status-container"></div>
+                <button mat-stroked-button id="ach-button" (click)="payAch()" [hidden]="achFormLoading">Pay</button>
+                <div [className]="achFormLoading? 'loading': 'hidden'">
+                    <mat-spinner color="warn"></mat-spinner>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> Google Pay </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="googlepay-form">
+                <div id="payment-status-container"></div>
+                <div id="googlepay-button" (click)="payGoogle()"></div>
+                <div [className]="googlePayFormLoading? 'loading': 'hidden'">
+                    <mat-spinner color="warn"></mat-spinner>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Gift Card Payment </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div id="giftcard-form">
+                <div id="payment-status-container"></div>
+                <div id="giftcard-container"></div>
+                <button mat-stroked-button (click)="payGiftCard()" [hidden]="giftCardFormLoading">Pay</button>
+                <div [className]="giftCardFormLoading? 'loading': 'hidden'">
+                    <mat-spinner color="warn"></mat-spinner>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    }
+    @else{
+    <div class="loading">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+    }
+</mat-dialog-content>

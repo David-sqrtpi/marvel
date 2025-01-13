@@ -1,0 +1,39 @@
+@if(character){
+<div class="grid-container">
+    <div class="cell cell-1">
+        <img [src]=character.thumbnail>
+    </div>
+    <div class="cell cell-2">
+        <p class="character-name">{{character.name}}</p>
+        <p class="character-description">{{character.description}}</p>
+        <button mat-flat-button [routerLink]=character.id>Show More</button>
+    </div>
+    <div class="cell cell-3">
+        <h3>Related comics</h3>
+    </div>
+
+    @if(character.comics.items[0]){
+    <div class="cell cell-4 comic">
+        <a class="clamp" (click)="openModal(character.comics.items[0].resourceURI)">{{character.comics.items[0].name}}</a>
+    </div>
+    }
+
+    @if(character.comics.items[1]){
+    <div class="cell cell-5 comic">
+        <a (click)="openModal(character.comics.items[1].resourceURI)">{{character.comics.items[1].name}}</a>
+    </div>
+    }
+
+    @if(character.comics.items[2]){
+    <div class="cell cell-6 comic">
+        <a (click)="openModal(character.comics.items[2].resourceURI)">{{character.comics.items[2].name}}</a>
+    </div>
+    }
+
+    @if(character.comics.items[3]){
+    <div class="cell cell-7 comic">
+        <a (click)="openModal(character.comics.items[3].resourceURI)">{{character.comics.items[3].name}}</a>
+    </div>
+    }
+</div>
+}

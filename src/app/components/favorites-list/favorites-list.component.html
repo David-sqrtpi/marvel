@@ -1,0 +1,14 @@
+<h1 class="header">My Favorites</h1>
+@if(list().length == 0){
+    <div class="no-items">No items here</div>
+}
+
+@for (item of list(); track $index) {
+<div class="image">
+    <img [src]="item.image" (click)="openModal(item.url)">
+    <div class="delete" (click)="removeFromFavorites($index)">
+        <img src="/assets/btn-delete.png">
+    </div>
+</div>
+<p class="title">{{item.title}}</p>
+}

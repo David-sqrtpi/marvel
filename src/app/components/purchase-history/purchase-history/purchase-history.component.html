@@ -1,0 +1,32 @@
+@if(history().length != 0){
+<mat-accordion>
+    @for(item of history(); track $index){
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Purchase</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="cart-items">
+            @for(cart of item; track $index){
+
+            <div class="cart-item">
+                <img [src]="cart.comic.image" class="item-image" />
+                <div class="item-details">
+                    <h3>{{cart.comic.title}}</h3>
+                    <p>Unit Price: ${{cart.unitPrice}}</p>
+                    <p style="font-weight: bold;">Total Price: ${{cart.totalPrice.toFixed(2)}}</p>
+                    <div class="quantity">
+                        <span>Quantity:{{ cart.quantity }}</span>
+                    </div>
+                </div>
+            </div>
+            }
+            <div class="total">
+                <h3>Items: {{ totalPrice(item).toFixed(2) }}</h3>
+                <h3>Total: ${{ sumItems(item) }}</h3>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    }
+</mat-accordion>
+}

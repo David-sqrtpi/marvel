@@ -1,0 +1,68 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cell {
+  text-align: center;
+}
+
+.favorites-list-sidenav {
+  width: 300px;
+  background-color: #ebebeb;
+  padding: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1000px 1fr;
+  background-color: #f4f4f4;
+}
+
+.main-content {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.toolbar {
+  background-color: #2d2727;
+  height: 75px;
+
+  img {
+    height: 60px;
+    margin: 8px;
+    margin-left: 30px;
+  }
+
+}
+
+.search-bar {
+  min-width: 450px;
+  max-width: 450px;
+  margin: 10px;
+  margin-left: 30px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+
+.characters-logo {
+  margin-top: 20px;
+  font-size: xx-large;
+  font-weight: bold;
+
+  .sort-by {
+    margin-left: 30px;
+  }
+}
+
+.window {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
+}

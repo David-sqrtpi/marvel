@@ -1,0 +1,32 @@
+@if(comic$ | async; as comic){
+<mat-dialog-content class="dialog">
+    <div class="main-container">
+        <img [src]=comic.image>
+        <div>
+            <p class="comic-title">{{comic.title}}</p>
+            <p class="comic-description">{{comic.description}}</p>
+        </div>
+
+        <button></button>
+    </div>
+    <div class="actions-container">
+        @if(isComicInFavorites(comic)){
+        <button class="actions-item added-to-favorites" mat-flat-button>
+            Added to Favorites</button>
+        }
+        @else {
+        <button class="actions-item action-add-favorites" mat-flat-button (click)="addToFavorites(comic)">
+            Add to Favorites</button>
+        }
+
+        @if(isComicInCart(comic)){
+        <button class="actions-item" mat-flat-button disabled="true">Added to Cart</button>
+        <!-- <div class="actions-item action-add-cart">In Cart</div> -->
+        }
+        @else {
+        <button class="actions-item action-add-cart" mat-flat-button (click)="addToCart(comic)">Buy for
+            ${{comic.price}}</button>
+        }
+    </div>
+</mat-dialog-content>
+}

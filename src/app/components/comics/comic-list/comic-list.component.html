@@ -1,0 +1,25 @@
+@if(!(comics$ | async)){
+    <div class="spinner">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+}
+@else {
+<div class="container">
+    <div class="item-list-container">
+        @for(item of comics$ | async; track $index){
+        <div class="item-card" (click)="openModal(item.url)">
+            <img [src]="item.image" [alt]="item.title" class="item-image">
+            <div class="item-info">
+                <h3 class="item-title">{{ item.title }}</h3>
+                <p class="item-description">{{ item.description }}</p>
+                <p class="item-price">{{ item.price }}</p>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<div class="pag">
+    <mat-paginator pageSize="20" [length]="totalPages" (page)="handlePageEvent($event)"
+        class="paginator"></mat-paginator>
+</div>
+}

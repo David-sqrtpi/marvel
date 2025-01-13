@@ -1,0 +1,24 @@
+<div class="toolbar">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/2560px-Marvel_Logo.svg.png"
+    alt="marvel-logo">
+  <div class="space"></div>
+
+  <div class="char">
+    <a class="marvel-font" routerLink="/">Characters</a>
+  </div>
+
+  <div class="comics">
+    <a class="marvel-font" routerLink="comics">Comics</a>
+  </div>
+
+  <div class="history">
+    <a class="marvel-font" routerLink="history">History</a>
+  </div>
+
+  <div>
+    <button mat-icon-button class="cart">
+      <mat-icon matBadgeColor="warn" routerLink=cart [matBadge]=itemsSum() class="marvel-color">shopping_cart</mat-icon>
+    </button>
+  </div>
+</div>
+<router-outlet />
