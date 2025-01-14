@@ -27,12 +27,10 @@ export class ModalComponent implements OnInit {
   }
 
   addToFavorites(comic: Comic) {
-    console.log(comic);
     this.favoritesService.addToFavorites(comic);
   }
 
   addToCart(comic: Comic) {
-    console.log(comic);
     let item: CartItem = {
       comic: comic,
       quantity: 1,

@@ -26,14 +26,10 @@ export class ComicListComponent {
   comics$: Observable<Comic[]> | undefined;
 
   ngOnInit(){
-    console.log(this.characterId);
-    
     this.comics$ = this.comicsService.getComics(this.pageIndex, this.characterId);
   }
 
   openModal(resourceURI: string) {
-    console.log(resourceURI);
-    
     this.dialog.open(ModalComponent, {
       data: resourceURI
     })

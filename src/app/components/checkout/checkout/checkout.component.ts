@@ -67,7 +67,6 @@ export class CheckoutComponent {
             });
 
             const details = await response.json();
-            console.log(details);
 
             this.afterCheckout();
           }

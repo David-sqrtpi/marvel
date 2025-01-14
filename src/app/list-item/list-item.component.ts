@@ -24,8 +24,6 @@ export class ListItemComponent implements OnInit {
   }
 
   openModal(resourceURI: string) {
-    console.log(resourceURI);
-    
     this.dialog.open(ModalComponent, {
       data: resourceURI
     })

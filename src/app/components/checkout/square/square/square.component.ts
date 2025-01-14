@@ -88,11 +88,9 @@ export class SquareComponent {
 
       this.paymentsService.pay(token, verificationToken).subscribe(r => {
         this.afterCheckout();
-        console.log(r);
       });
     }
     catch (e) {
-      console.log("epic fail", e);
       this.paymentInProgress.set(false);
       this.renderPaymentMethods();
     }
@@ -104,12 +102,10 @@ export class SquareComponent {
       const verificationToken = await this.verifyBuyer(token);
 
       this.paymentsService.pay(token, verificationToken).subscribe(r => {
-        console.log(r);
         this.afterCheckout();
       });
     }
     catch (e) {
-      console.log("epic fail", e);
       this.paymentInProgress.set(false);
       this.renderPaymentMethods();
     }
@@ -121,7 +117,6 @@ export class SquareComponent {
       await this.tokenizeAch(this.ach, options);
     }
     catch (e) {
-      console.log("epic fail", e);
       this.paymentInProgress.set(false);
       this.renderPaymentMethods();
     }
@@ -135,12 +130,10 @@ export class SquareComponent {
       const verificationToken = await this.verifyBuyer(token);
 
       this.paymentsService.pay(token, verificationToken).subscribe(r => {
-        console.log(r);
         this.afterCheckout();
       });
     }
     catch (e) {
-      console.log("epic fail", e);
       this.paymentInProgress.set(false);
       this.renderPaymentMethods();
     }
@@ -202,7 +195,6 @@ export class SquareComponent {
       if (tokenResult.status === 'OK') {
         const verificationToken = await this.verifyBuyer(tokenResult.token);
         this.paymentsService.pay(tokenResult.token, verificationToken).subscribe(r => {
-          console.log(r);
           this.afterCheckout();
         })
       } else {

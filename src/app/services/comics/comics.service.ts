@@ -20,7 +20,7 @@ export class ComicsService {
   comic$ = this.url
     .pipe(
       filter(Boolean),
-      map(r=>r),
+      map(r=>this.secureUrl(r)),
       switchMap(url => this.getComic(url))
     );
 
@@ -33,8 +33,8 @@ export class ComicsService {
       params: this.params
     }).pipe(
       map(r => {
-        const result = r.data.results[0]
-        console.log(result)
+        const result = r.data.results[0];
+        
         return {
           id: result.id,
           title: result.title,
@@ -52,14 +52,11 @@ export class ComicsService {
     let params = { ...this.params };
     if (characterId) params['characters'] = characterId;
 
-    console.log(characterId);
-    
     return this.http.get<ComicsResponse>("https://gateway.marvel.com:443/v1/public/comics", {
       params: params
     }).pipe(
       map(response => {
         let comics = response.data.results;
-        console.log(comics);
 
         return comics.map(comic => ({
           id: comic.id,

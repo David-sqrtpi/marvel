@@ -26,7 +26,6 @@ export class CartComponent {
   testu = this.cartService.items;
 
   doSomething(comicId: any) {
-    console.log("deleting itemQ", comicId);
     this.cartService.removeFromCart(comicId);
   }
 

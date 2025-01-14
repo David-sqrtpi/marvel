@@ -15,20 +15,11 @@ export class FavoritesListComponent {
   readonly favoritesService = inject(FavoritesService)
   list = this.favoritesService.favorites;
 
-
-  ngOnInit(){
-    console.log(this.list());
-    
-  }
-
   removeFromFavorites(index: number) {
     this.favoritesService.removeFromFavorites(index);
   }
 
   openModal(url: string | undefined) {
-    console.log(url);
-    console.log(this.list());
-    
     this.dialog.open(ModalComponent, {
       data: url
     })
