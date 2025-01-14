@@ -20,6 +20,7 @@ export class ComicsService {
   comic$ = this.url
     .pipe(
       filter(Boolean),
+      map(r=>r),
       switchMap(url => this.getComic(url))
     );
 
@@ -70,5 +71,9 @@ export class ComicsService {
         }));
       })
     );
+  }
+
+  secureUrl(url: string){
+    return url.replace("http://", "https://");
   }
 }
